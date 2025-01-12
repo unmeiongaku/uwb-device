@@ -26,6 +26,7 @@ void lcd_clear();
 void lcd_display_APP_NAME_(lcd_mode_display_t lcd_mode);
 void lcd_display_MENU_(lcd_mode_display_t lcd_mode);
 void lcd_display_parameters(float temp, float press, float humi, float rssi, float distance);
+void lcd_display_bme_parameters(float temp, float press, float humi);
 void lcd_display_status(char* str);
 void lcd_display_polling(char* str);
 void lcd_display_ret(char* str);

@@ -26,12 +26,16 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "user_define.h"
-#include "buzzer.h"
+#include "app_main.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
+
+
+/*Uwb Statics variable*/
+
 
 /* USER CODE END PTD */
 
@@ -95,11 +99,7 @@ int main(void)
   MX_TIM5_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  /*init Delay timer*/
-	HAL_TIM_Base_Start(&TIM_DELAY_US);
-	buzzer_sys_start();
-
+  app_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */

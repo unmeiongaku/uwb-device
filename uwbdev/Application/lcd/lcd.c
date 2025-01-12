@@ -121,6 +121,31 @@ void lcd_display_parameters(float temp, float press, float humi, float rssi, flo
 	tt+=1.1;
 }
 
+void lcd_display_bme_parameters(float temp, float press, float humi){
+	char so_str[20];
+	SSD1306_GotoXY(20, 20);
+	SSD1306_Puts("    ",&Font_7x10, 1);
+	SSD1306_GotoXY(20, 35);
+	SSD1306_Puts("    ",&Font_7x10, 1);
+	SSD1306_GotoXY(80, 20);
+	SSD1306_Puts("    ",&Font_7x10, 1);
+	SSD1306_UpdateScreen();
+
+	SSD1306_GotoXY(20, 20);
+	sprintf(so_str, "%.2f", temp);
+	SSD1306_Puts(so_str,&Font_7x10, 1);
+
+	SSD1306_GotoXY(80, 20);
+	sprintf(so_str, "%.2f", humi);
+	SSD1306_Puts(so_str,&Font_7x10, 1);
+
+	SSD1306_GotoXY(20, 35);
+	sprintf(so_str, "%.1f", press);
+	SSD1306_Puts(so_str,&Font_7x10, 1);
+
+	SSD1306_UpdateScreen();
+}
+
 void lcd_display_status(char* str){
 	SSD1306_GotoXY(20, 50);
 	SSD1306_Puts("                                            ",&Font_7x10, 1);
