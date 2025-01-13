@@ -27,15 +27,15 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_main.h"
+#include "mode_anchor.h"
+#include "mode_tag.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
-
+static uwb_anchor_t uwba;
 
 /*Uwb Statics variable*/
-
 
 /* USER CODE END PTD */
 
@@ -100,6 +100,12 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   app_init();
+#if DEFAULT_MODE_SELECT == 0
+	  uwb_mode_anchor_init(&uwba);
+#elif DEFAULT_MODE_SELECT == 1
+
+#endif
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,7 +113,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+#if DEFAULT_MODE_SELECT == 0
+	  mode_anchor_run(&uwba);
+#elif DEFAULT_MODE_SELECT == 1
+	  mode_tag_run();
+#endif
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

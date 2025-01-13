@@ -12,6 +12,8 @@
 #include "usart.h"
 #include "gpio.h"
 
+#define DELAY_MS_FOR_LCD_FUNCTION 20
+
 #define MAX_CALLBACK_FUNC 					10
 #define UWB_PERIOD_CALLBACK 				5
 #define PRESCALER_TIME_TICK_PERIOD		5
