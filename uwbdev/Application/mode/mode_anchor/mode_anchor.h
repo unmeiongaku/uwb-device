@@ -29,11 +29,27 @@ typedef struct{
 	uint64_t poll_rx_ts;
 	uint64_t resp_tx_ts;
 	uint8_t frame_seq_nb;
+	/*Final rx msg*/
+    uint32_t poll_tx_ts, resp_rx_ts, final_tx_ts;
+    uint32_t poll_rx_ts_32, resp_tx_ts_32, final_rx_ts_32;
+	uint64_t final_rx_ts;
+	/*Data*/
+	double Ra;
+	double Rb;
+	double Da;
+	double Db;
+	double tof;
+	double distance;
+	int64_t tof_dtu;
+	float rssi;
+	/*Error*/
+	uint32_t errors[23];
+
 }uwb_anchor_t;
 
 
 void uwb_mode_anchor_init(uwb_anchor_t *uwba);
-void mode_anchor_run(uwb_anchor_t *uwba);
+int8_t mode_anchor_run(uwb_anchor_t *uwba);
 #endif
 
 
